@@ -1,0 +1,21 @@
+# Local data and credentials
+.env
+.env.*
+*.pem
+*.key
+# Development artifacts and stale deployment archives
+node_modules/
+tmp/
+output/
+coverage/
+*.log
+*.zip
+*.pdf
+*.xlsx
+*.xls
+*.csv
+*.bak
+.netlify/
+.DS_Store
+Thumbs.db
+desktop.ini

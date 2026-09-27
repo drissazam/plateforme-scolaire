@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="منظومة الإحالة التربوية السريعة للحراسة العامة — مجموعة مدارس مون إيكول (تطوان) — وزارة التربية الوطنية والتعليم الأولي والرياضة. تحرير بطاقة إحالة معيارية، تصدير A5 PDF ومشاركة فورية عبر WhatsApp.">
+  <meta name="robots" content="index, follow">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- دعم الهواتف الذكية وتطبيقات الويب (PWA / Mobile Web App) -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GS MON ECOLE">
+
+  <title>GS MON ECOLE | بطاقة إحالة تربوية — منظومة الانضباط المدرسي</title>
+  
+  <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="canonical" href="https://drissazam.github.io/gs-mon-ecole/">
+
+  <!-- بطاقة المشاركة الرسمية لشبكات التواصل وواتساب (Open Graph / WhatsApp / Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_MA">
+  <meta property="og:site_name" content="GS MON ECOLE — منصة التتبع التربوي">
+  <meta property="og:title" content="منصة التتبع التربوي والانضباط المدرسي — GS MON ECOLE (تطوان)">
+  <meta property="og:description" content="منظومة الإحالة التربوية السريعة للحراسة العامة بمجموعة مدارس مون إيكول بتطوان. تحرير تقرير الإحالة في ثوانٍ، استخراج بطاقة رسمية A5 PDF ومشاركة فورية عبر WhatsApp.">
+  <meta property="og:url" content="https://drissazam.github.io/gs-mon-ecole/">
+  <meta property="og:image" content="https://drissazam.github.io/gs-mon-ecole/assets/img/og-preview.png">
+  <meta property="og:image:secure_url" content="https://drissazam.github.io/gs-mon-ecole/assets/img/og-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="واجهة منصة التتبع التربوي والانضباط المدرسي بمجموعة مدارس مون إيكول بتطوان">
+
+  <!-- بطاقة تويتر (Twitter Card) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="منصة التتبع التربوي والانضباط المدرسي — GS MON ECOLE (تطوان)">
+  <meta name="twitter:description" content="منظومة الإحالة التربوية السريعة للحراسة العامة: بطاقة A5 رسمية ومشاركة WhatsApp فورية.">
+  <meta name="twitter:image" content="https://drissazam.github.io/gs-mon-ecole/assets/img/og-preview.png">
+  <meta name="twitter:image:alt" content="واجهة منصة التتبع التربوي والانضباط المدرسي بمجموعة مدارس مون إيكول بتطوان">
+
+  <link rel="stylesheet" href="assets/css/style-main.css">
+  
+  <!-- مكتبات محلية للعمل دون اتصال -->
+  <script defer src="assets/js/vendor/xlsx.full.min.js"></script>
+  <script defer src="assets/js/vendor/chart.umd.min.js"></script>
+  <script defer src="assets/js/vendor/html2pdf.bundle.min.js"></script>
+  <script defer src="assets/js/logos-data.js"></script>
+  <script defer src="assets/js/app-main.js"></script>
+</head>
+<body>
+
+  <!-- ═══ الشريط الملكي المغربي ═══ -->
+  <div class="gov-top-bar"></div>
+
+  <!-- ═══ الترويسة الرسمية المؤسساتية ═══ -->
+  <header class="official-header">
+    <div class="header-container">
+      <div class="institution-logo"><img id="headerSchoolLogo" src="assets/img/school-logo.png" alt="شعار المؤسسة التعليمية" width="112" height="100"></div>
+      <div class="header-titles">
+        <p class="ministry-mention">المملكة المغربية — وزارة التربية الوطنية والتعليم الأولي والرياضة</p>
+        <h1>منصة التتبع التربوي والانضباط المدرسي</h1>
+        <p class="school-identity">مجموعة مدارس مون إيكول — <bdi>GS MON ECOLE</bdi></p>
+        <p class="institution-details">أكاديمية جهة طنجة - تطوان - الحسيمة · المديرية الإقليمية بتطوان</p>
+        <p class="header-subtitle">الحراسة العامة — منظومة الإحالة التربوية السريعة</p>
+      </div>
+      <div class="institution-logo ministry-logo"><img id="headerMinistryLogo" src="assets/img/ministry-logo.png" alt="شعار وزارة التربية الوطنية والتعليم الأولي والرياضة" width="112" height="100"></div>
+    </div>
+    <section class="institution-intro" aria-label="تقديم المنصة وأهدافها">
+      <p class="intro-lead">فضاء رقمي داخلي يهدف إلى رقمنة وتيسير إحالة وضعيات التلاميذ غير المنضبطين داخل قاعات الدرس، وتنظيم تدخل الحراسة العامة بشكل فوري وموثق. صُممت هذه المنصة لتمكين الأستاذ(ة) من تحرير التقرير وإرساله في أقل من 25 ثانية، تجنباً لتضييع زمن التعلم أو إرسال ممثل القسم خارج القاعة.</p>
+      <div class="objectives-grid">
+        <article><span aria-hidden="true">⏱️</span><div><h2>التحرير فائق السرعة</h2><p>ملء تقرير الإحالة التربوية في ثوانٍ معدودة عبر وسم المخالفات المتعددة بلمسة واحدة.</p></div></article>
+        <article><span aria-hidden="true">📱</span><div><h2>المشاركة عبر WhatsApp</h2><p>إعداد صورة عالية الدقة للبطاقة الرسمية لمشاركتها عبر قائمة المشاركة، أو تنزيلها ولصقها أو إرفاقها في WhatsApp ثم تأكيد الإرسال.</p></div></article>
+        <article><span aria-hidden="true">📄</span><div><h2>بطاقة إحالة رسمية — A5 PDF</h2><p>استخراج وتحميل بطاقة إحالة تربوية أنيقة وعالية الدقة، جاهزة للطباعة والتوقيع والأرشفة.</p></div></article>
+        <article><span aria-hidden="true">🔍</span><div><h2>البحث عن التلاميذ — مسار</h2><p>البحث بالاسم أو برقم مسار عبر الإكمال التلقائي وتعبئة بيانات القسم والمستوى المتوفرة في اللائحة.</p></div></article>
+        <article><span aria-hidden="true">📊</span><div><h2>التتبع الإحصائي اليومي</h2><p>إحصائيات وتقارير الدورة اليومية من السابعة صباحاً إلى السابعة من اليوم الموالي بتوقيت المغرب، مع الحفاظ على لوائح التلاميذ.</p></div></article>
+        <article><span aria-hidden="true">🔒</span><div><h2>الخصوصية والاستقلالية المحلية</h2><p>دون حساب أو خادم لتخزين البيانات، مع معالجة لوائح مسار Excel محلياً داخل المتصفح. تتطلب المشاركة عبر WhatsApp اتصالاً بالإنترنت.</p></div></article>
+      </div>
+      <a class="intro-action" href="#tab-form">تحرير إحالة جديدة <span aria-hidden="true">↓</span></a>
+    </section>
+  </header>
+
+  <!-- ═══ شريط التبويبات للتنقل السلس ═══ -->
+  <nav class="nav-tabs-wrapper">
+    <div class="nav-tabs">
+      <button class="nav-tab-btn active" data-tab="tab-form">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        تسجيل إحالة جديدة
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-stats">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        الإحصائيات اليومية
+        <span class="nav-tab-badge" id="tabStatsCountBadge">0</span>
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-students">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        لوائح مسار Excel
+      </button>
+      <button class="nav-tab-btn" data-tab="tab-settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        إعدادات المؤسسة
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ الحاوية الرئيسية للتطبيق ═══ -->
+  <main class="app-container">
+    <p id="storageStatus" class="field-error" role="status" hidden></p>
+
+    <!-- ══════════════ 1. تبويب تسجيل الإحالة التربوية ══════════════ -->
+    <div id="tab-form" class="tab-pane active">
+      
+      <!-- القسم 1: بيانات الأستاذ والحصة -->
+      <section class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          بيانات الأستاذ(ة) والحصة الدراسية
+        </h2>
+        <div class="form-grid-4">
+          <div class="form-group">
+            <label class="form-label" for="teacherName">اسم الأستاذ(ة) <span class="req-star">*</span></label>
+            <input type="text" id="teacherName" class="form-input" value="" placeholder="مثال: ادريس القرمودي" autocomplete="off" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subjectTaught">المادة المُدرَّسة <span class="req-star">*</span></label>
+            <select id="subjectTaught" class="form-select" required>
+              <option value="">-- اختر المادة --</option>
+              <option value="اللغة العربية">اللغة العربية</option>
+              <option value="اللغة الفرنسية">اللغة الفرنسية</option>
+              <option value="اللغة الإنجليزية">اللغة الإنجليزية</option>
+              <option value="الرياضيات">الرياضيات</option>
+              <option value="الفيزياء والكيمياء">الفيزياء والكيمياء</option>
+              <option value="علوم الحياة والأرض">علوم الحياة والأرض</option>
+              <option value="الاجتماعيات (التاريخ والجغرافيا)">الاجتماعيات (التاريخ والجغرافيا)</option>
+              <option value="التربية الإسلامية">التربية الإسلامية</option>
+              <option value="الفلسفة">الفلسفة</option>
+              <option value="التربية البدنية والرياضية">التربية البدنية والرياضية</option>
+              <option value="الإعلاميات">الإعلاميات</option>
+              <option value="التربية التشكيلية">التربية التشكيلية</option>
+              <option value="التربية الموسيقية">التربية الموسيقية</option>
+              <option value="التكنولوجيا الصناعية">التكنولوجيا الصناعية</option>
+              <option value="العلوم الاقتصادية والتدبير">العلوم الاقتصادية والتدبير</option>
+              <option value="العلوم الهندسية">العلوم الهندسية</option>
+              <option value="مادة أخرى…">مادة أخرى…</option>
+            </select>
+            <div id="customSubjectGroup" style="display:none;">
+              <label class="form-label" for="customSubject">اكتب اسم المادة المُدرَّسة</label>
+              <input id="customSubject" class="form-input" type="text" maxlength="100" aria-describedby="customSubjectError">
+              <p id="customSubjectError" class="field-error" role="alert" style="display:none;"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="incidentDate">التاريخ <span class="req-star">*</span></label>
+            <input type="date" id="incidentDate" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="incidentTime">توقيت الحصة <span class="req-star">*</span></label>
+            <input type="time" id="incidentTime" class="form-input" required>
+          </div>
+        </div>
+      </section>
+
+      <!-- القسم 2: السلك، المستوى، القسم، والقاعة -->
+      <section class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+          تحديد المستوى والقسم
+        </h2>
+        <div class="form-grid-4">
+          <div class="form-group">
+            <label class="form-label" for="educationCycle">السلك التعليمي <span class="req-star">*</span></label>
+            <select id="educationCycle" class="form-select" required>
+              <option value="">-- اختر السلك --</option>
+              <option value="التعليم الابتدائي">سلك التعليم الابتدائي</option>
+              <option value="الثانوي الإعدادي">سلك التعليم الثانوي الإعدادي</option>
+              <option value="الثانوي التأهيلي">سلك التعليم الثانوي التأهيلي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="levelGrade">المستوى الدراسي (مسار) <span class="req-star">*</span></label>
+            <select id="levelGrade" class="form-select" required disabled>
+              <option value="">-- اختر السلك أولاً --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="divisionNumber">رقم القسم <span class="req-star">*</span></label>
+            <input type="text" id="divisionNumber" class="form-input" placeholder="مثال: 1 أو 2" value="1" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="classroom">قاعة الدرس</label>
+            <input type="text" id="classroom" class="form-input" placeholder="مثال: القاعة 7 (اختياري)">
+          </div>
+        </div>
+      </section>
+
+      <!-- القسم 3: تحديد التلميذ بالبحث التلقائي الذكي -->
+      <section class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          تحديد التلميذ(ة) المعني(ة) بالإحالة
+        </h2>
+        
+        <!-- مربع البحث والإكمال التلقائي للتلاميذ -->
+        <div class="autocomplete-box">
+          <div class="search-input-group">
+            <input type="text" id="studentSearchInput" class="form-input" placeholder="اكتب اسم التلميذ أو رقم مسار لإضافته للتقرير..." autocomplete="off">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <div id="studentSuggestionsDropdown" class="suggestions-dropdown"></div>
+        </div>
+
+        <!-- حاوية التلاميذ المعنيين بالإحالة (دعم تلميذ واحد أو عدة تلاميذ) -->
+        <div id="selectedStudentsContainer" class="selected-students-wrapper" style="display: none;">
+          <div class="selected-students-header">
+            <span class="students-counter-badge" id="selectedStudentsCountBadge">🎓 التلاميذ المعنيون بالإحالة (العدد: 0)</span>
+            <button type="button" class="btn-clear-selection" id="btnClearAllStudents">مسح الكل ✕</button>
+          </div>
+          <div id="selectedStudentsChipsList" class="selected-students-chips"></div>
+        </div>
+      </section>
+
+      <!-- القسم 4: شارات المخالفات المتعددة (Multi-Select) -->
+      <section class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          طبيعة المخالفة المسجلة (يمكن اختيار عدة مخالفات)
+        </h2>
+
+        <div class="infractions-grid">
+          <div class="infraction-chip" data-val="العراك أو التشابك بالأيدي داخل القاعة">
+            <div class="chip-content">
+              <span class="chip-icon">🥊</span>
+              <span>العراك أو التشابك بالأيدي داخل القاعة</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="الشغب والتشويش المفرط على سير الدرس">
+            <div class="chip-content">
+              <span class="chip-icon">🚨</span>
+              <span>الشغب والتشويش المفرط على سير الدرس</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="عدم إنجاز الواجبات والتمارين المنزلية">
+            <div class="chip-content">
+              <span class="chip-icon">📝</span>
+              <span>عدم إنجاز الواجبات والتمارين المنزلية</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="عدم إحضار الدفتر أو الكتاب أو اللوازم المدرسية">
+            <div class="chip-content">
+              <span class="chip-icon">📚</span>
+              <span>عدم إحضار الدفتر أو الكتاب أو اللوازم</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="استعمال الهاتف النقال أو الأجهزة الإلكترونية">
+            <div class="chip-content">
+              <span class="chip-icon">📱</span>
+              <span>استعمال الهاتف النقال أو الأجهزة الإلكترونية</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="الإخلال بالاحترام الواجب لهيئة التدريس أو الزملاء">
+            <div class="chip-content">
+              <span class="chip-icon">🗣️</span>
+              <span>الإخلال بالاحترام الواجب للأستاذ أو الزملاء</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="الرفض الصريح للامتثال للتوجيهات التربوية">
+            <div class="chip-content">
+              <span class="chip-icon">✋</span>
+              <span>الرفض الصريح للامتثال للتوجيهات التربوية</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="مغادرة قاعة الدرس دون إذن الأستاذ">
+            <div class="chip-content">
+              <span class="chip-icon">🚪</span>
+              <span>مغادرة قاعة الدرس دون إذن الأستاذ</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="التأخر غير المبرر عن موعد انطلاق الحصة">
+            <div class="chip-content">
+              <span class="chip-icon">⏰</span>
+              <span>التأخر غير المبرر عن بداية الحصة</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+
+          <div class="infraction-chip" data-val="إلحاق الضرر المتعمد بأثاث أو تجهيزات القاعة">
+            <div class="chip-content">
+              <span class="chip-icon">🔨</span>
+              <span>إلحاق الضرر بأثاث أو تجهيزات القاعة</span>
+            </div>
+            <div class="chip-checkbox"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- القسم 5: الملاحظات السياقية المقتضبة -->
+      <section class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          ملاحظات وتفاصيل سياقية إضافية (اختياري)
+        </h2>
+        <div class="form-group">
+          <textarea id="additionalNotes" class="form-textarea" rows="2" placeholder="أضف ملاحظة موجزة تساعد الحراسة العامة في فهم ملابسات الحالة..."></textarea>
+        </div>
+      </section>
+
+      <p id="exportStatus" class="export-status" role="status" aria-live="polite"></p>
+      <section id="imageSharePanel" class="share-panel" aria-label="صورة البطاقة الجاهزة" hidden>
+        <p>الصورة الرسمية جاهزة. اختر WhatsApp من قائمة المشاركة، أو نزّل الصورة وأرفقها بالمحادثة.</p>
+        <div class="share-panel-actions">
+          <button type="button" id="btnShareReadyImage" class="btn-main btn-whatsapp">مشاركة الصورة الجاهزة</button>
+          <button type="button" id="btnCopyReadyImage" class="btn-main btn-reset">نسخ الصورة</button>
+          <a id="downloadReadyImage" class="btn-main btn-pdf" download="Rapport_GS_Mon_Ecole.png">تحميل الصورة PNG</a>
+          <a id="openWhatsAppImage" class="btn-main btn-reset" target="_blank" rel="noopener noreferrer">فتح WhatsApp</a>
+        </div>
+        <p class="share-help">على الحاسوب: الصق الصورة باستخدام Ctrl + V أو أرفق الملف المحمّل. الإرسال يتم بعد تأكيدك داخل WhatsApp.</p>
+      </section>
+
+      <!-- القسم 6: أزرار التنفيذ المباشرة -->
+      <div class="action-buttons-wrap">
+        <!-- زر الواتساب مع الأيقونة الرسمية -->
+        <button type="button" id="btnSendWhatsApp" class="btn-main btn-whatsapp">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          مشاركة صورة البطاقة عبر WhatsApp
+        </button>
+
+        <!-- زر تحميل PDF بصيغة A5 -->
+        <button type="button" id="btnDownloadPDF" class="btn-main btn-pdf">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          تحميل بطاقة الإحالة الرسمية (A5 PDF)
+        </button>
+
+        <!-- زر تفريغ الحقول -->
+        <button type="button" id="btnResetReport" class="btn-main btn-reset">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          تفريغ الحقول
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ══════════════ 2. تبويب الإحصائيات اليومية ══════════════ -->
+    <div id="tab-stats" class="tab-pane">
+      <div class="stats-summary-grid">
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon blue">📅</div>
+          <div class="stat-metric-info">
+            <h4>إحالات اليوم</h4>
+            <div class="metric-num" id="statTotalToday">0</div>
+          </div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon orange">⚠️</div>
+          <div class="stat-metric-info">
+            <h4>المخالفة الأكثر تكراراً</h4>
+            <div class="metric-num" style="font-size:1.05rem;" id="statTopInfraction">—</div>
+          </div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon purple">🏫</div>
+          <div class="stat-metric-info">
+            <h4>القسم الأكثر تسجيلاً</h4>
+            <div class="metric-num" style="font-size:1.05rem;" id="statTopDivision">—</div>
+          </div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="stat-metric-icon green">📊</div>
+          <div class="stat-metric-info">
+            <h4>مجموع إحالات الدورة اليومية</h4>
+            <div class="metric-num" id="statTotalAll">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-card">
+          <h3>توزيع طبيعة المخالفات المسجلة (%)</h3>
+          <canvas id="chartInfractionTypes" height="230"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>ترتيب الأقسام حسب عدد الإحالات</h3>
+          <canvas id="chartDivisions" height="230"></canvas>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          سجل الإحالات التربوية الأخيرة
+        </h2>
+        <div class="table-responsive">
+          <table class="official-table">
+            <thead>
+              <tr>
+                <th>التلميذ(ة)</th>
+                <th>رقم مسار</th>
+                <th>المستوى والقسم</th>
+                <th>طبيعة المخالفة</th>
+                <th>التاريخ والتوقيت</th>
+                <th>إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="recentReportsTableBody">
+              <tr>
+                <td colspan="6" style="text-align:center; color:#94a3b8; padding:20px;">جارٍ تحميل البيانات...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ 3. تبويب لوائح مسار Excel ══════════════ -->
+    <div id="tab-students" class="tab-pane">
+      <div class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          استيراد وتفريغ لوائح مسار (Excel / CSV)
+        </h2>
+        <p style="color:#64748b; margin-bottom:14px; font-size:0.9rem;">
+          يمكنك تفريغ لائحة التلاميذ المستخرجة مباشرة من منصة مسار (بصيغة .xlsx أو .csv). تتم المعالجة محلياً داخل المتصفح دون رفعها لأي خادم.
+        </p>
+        <input type="file" id="excelFileInput" accept=".xlsx, .xls, .csv" style="display:none;">
+        <button type="button" id="btnTriggerUpload" class="btn-main btn-pdf" style="display:inline-flex; width:auto; padding:10px 20px;">
+          📁 اختيار ملف مسار (Excel)
+        </button>
+        <span id="importStatusMsg" style="margin-right:14px; font-weight:600; font-size:0.9rem;"></span>
+      </div>
+
+      <div class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          إضافة تلميذ(ة) يدوياً
+        </h2>
+        <form id="formAddStudent" class="form-grid-4">
+          <div class="form-group">
+            <label class="form-label">الاسم الكامل <span class="req-star">*</span></label>
+            <input type="text" id="newStudentName" class="form-input" placeholder="اسم التلميذ" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">رقم مسار <span class="req-star">*</span></label>
+            <input type="text" id="newStudentId" class="form-input" placeholder="مثال: M130098765" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">المستوى</label>
+            <input type="text" id="newStudentLevel" class="form-input" placeholder="مثال: الجذع المشترك العلمي">
+          </div>
+          <div class="form-group">
+            <label class="form-label">القسم</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="newStudentDiv" class="form-input" placeholder="1" style="width:70px;">
+              <button type="submit" class="btn-main btn-pdf" style="padding:10px 14px; width:100%;">+ إضافة</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          قاعدة التلاميذ المسجلة محلياً (<span id="studentsListCount">0</span> تلميذ)
+        </h2>
+        <div class="table-responsive">
+          <table class="official-table">
+            <thead>
+              <tr>
+                <th>الاسم الكامل</th>
+                <th>رقم مسار</th>
+                <th>المستوى الدراسي</th>
+                <th>القسم</th>
+                <th>إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTableBody">
+              <tr>
+                <td colspan="5" style="text-align:center; color:#94a3b8; padding:20px;">جارٍ تحميل اللائحة...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ 4. تبويب إعدادات المؤسسة ══════════════ -->
+    <div id="tab-settings" class="tab-pane">
+      <div class="card-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          الهوية المؤسسية المعتمدة وواتساب الحراسة العامة
+        </h2>
+        <form id="settingsForm" class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">اسم المؤسسة التعليمية</label>
+            <input type="text" id="settingSchoolName" class="form-input" readonly aria-readonly="true" value="مجموعة مدارس مون إيكول — GS MON ECOLE">
+          </div>
+          <div class="form-group">
+            <label class="form-label">المديرية الإقليمية</label>
+            <input type="text" id="settingDirectorate" class="form-input" readonly aria-readonly="true" value="المديرية الإقليمية بتطوان">
+          </div>
+          <div class="form-group">
+            <label class="form-label">الأكاديمية الجهوية</label>
+            <input type="text" id="settingAcademy" class="form-input" readonly aria-readonly="true" value="أكاديمية جهة طنجة - تطوان - الحسيمة">
+          </div>
+          <div class="form-group">
+            <label class="form-label">رقم هاتف الحراسة العامة (واتساب - اختياري)</label>
+            <input type="text" id="settingPhone" class="form-input" placeholder="مثال: 212600000000 (اتركه فارغاً للمشاركة المباشرة)">
+          </div>
+          <div style="grid-column: 1 / -1; margin-top: 10px;">
+            <button type="submit" class="btn-main btn-pdf" style="width: auto; padding: 12px 28px;">
+              💾 حفظ الإعدادات
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══ قالب ورقة A5 الرسمية المخصصة لتوليد PDF ═══ -->
+  <div id="pdfA5Container" style="display: none;">
+    <div class="a5-official-sheet">
+      
+      <!-- ترويسة المملكة المغربية الرسمية -->
+      <div class="a5-header-grid">
+        <img class="a5-logo" id="pdfSchoolLogo" src="assets/img/school-logo.png" alt="شعار المؤسسة">
+        <div class="a5-header-center">
+          <strong>المملكة المغربية</strong><br>
+          وزارة التربية الوطنية والتعليم الأولي والرياضة<br>
+          <span id="pdfAcademy">أكاديمية جهة طنجة - تطوان - الحسيمة</span><br>
+          <span id="pdfDirectorate">المديرية الإقليمية بتطوان</span><br>
+          <strong id="pdfSchoolName">مجموعة مدارس مون إيكول — GS MON ECOLE</strong>
+        </div>
+        <img class="a5-logo" id="pdfMinistryLogo" src="assets/img/ministry-logo.png" alt="شعار الوزارة">
+      </div>
+
+      <!-- عنوان الوثيقة الرسمي -->
+      <div class="a5-doc-title">
+        <h2>بطاقة إحالة تربوية على الحراسة العامة</h2>
+        <p>إشعار بمخالفة انضباطية داخل قاعة الدرس</p>
+      </div>
+
+      <!-- جدول بيانات التلاميذ والأستاذ والحصة -->
+      <table class="a5-data-table">
+        <tbody id="pdfStudentsTableBody">
+          <tr><th>التلميذ(ة)</th><td colspan="3"><strong id="pdfStudentName">—</strong></td></tr>
+          <tr><th>رقم مسار</th><td id="pdfMassarId" dir="ltr">—</td><th>القسم</th><td id="pdfDivision">—</td></tr>
+          <tr><th>المستوى الدراسي</th><td colspan="3" id="pdfLevel">—</td></tr>
+        </tbody>
+        <tbody>
+          <tr><th>الأستاذ(ة)</th><td id="pdfTeacher">—</td><th>المادة</th><td id="pdfSubject">—</td></tr>
+          <tr><th>التاريخ</th><td id="pdfDate" dir="ltr">—</td><th>توقيت الحصة</th><td id="pdfTime" dir="ltr">—</td></tr>
+          <tr><th>قاعة الدرس</th><td colspan="3" id="pdfClassroom">—</td></tr>
+        </tbody>
+      </table>
+
+      <!-- صندوق المخالفات المسجلة -->
+      <div class="a5-infractions-box">
+        <h4>طبيعة المخالفة أو التعثر السلوكي المسجل:</h4>
+        <ul id="pdfInfractionsList" class="a5-infractions-list">
+          <li>لم يتم تحديد مخالفات</li>
+        </ul>
+      </div>
+
+      <!-- ملاحظات الأستاذ -->
+      <div class="a5-infractions-box" style="min-height: 18mm;">
+        <h4 style="color:#1e293b;">ملاحظات سياقية من طرف الأستاذ(ة):</h4>
+        <p id="pdfNotes" style="font-size: 8.5pt; color: #334155; margin: 0;">لا توجد ملاحظات إضافية.</p>
+      </div>
+
+      <!-- خانات التوقيع الرسمية -->
+      <div class="a5-signatures-grid">
+        <div class="a5-signature-box">
+          <h5>توقيع الأستاذ(ة)</h5>
+          <div style="height: 14mm;"></div>
+        </div>
+        <div class="a5-signature-box">
+          <h5>قرار وملاحظات الحراسة العامة</h5>
+          <div class="a5-guard-fields">
+            <div class="guard-field-line">
+              <span class="guard-field-title">تاريخ الاستقبال :</span>
+              <span class="guard-field-dots"></span>
+            </div>
+            <div class="guard-field-line">
+              <span class="guard-field-title">الإجراء المتخذ :</span>
+              <span class="guard-field-dots"></span>
+            </div>
+            <div class="guard-field-line">
+              <span class="guard-field-title">إشعار ولي الأمر :</span>
+              <span class="guard-field-dots"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- هامش رسمي سفلي -->
+      <div class="a5-sheet-footer">
+        وثيقة إدارية داخلية — الحراسة العامة — تُحفظ بملف التلميذ المدرسي
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ تذييل الصفحة ═══ -->
+  <footer class="app-footer">
+    <p>منظومة الإحالة التربوية السريعة — الحراسة العامة © 2026 — وزارة التربية الوطنية والتعليم الأولي والرياضة</p>
+  </footer>
+
+</body>
+</html>
